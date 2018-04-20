@@ -16,3 +16,7 @@ Out of different scales, it seems 50kb to be a suitable threshold for large doma
 However, it seems it still exist some segments neighboring each other which can be put together as a bigger segment since their values are very close. What I did was to merge the bed file containing the segment data and use the average of the value of segments merging together as their final value. Below is the same screenshot with the new merged bed file added. The smoothing (merging of neighboring segments) in this example is more clear on the far left of the screenshot.
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot3.png)
+
+#### Out of 3698 segments, after merging there are 2696 larger segments left. After filtering for minimum 500kb size of the intergenic segments, there are 114 segments left.
+
+You can download the segments and merged segments <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedgraph.zip">before merging</a> and <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic.bedgraph.zip">after merging</a>.
