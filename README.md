@@ -22,4 +22,5 @@ However, it seems it still exist some segments neighboring each other which can 
 You can download the segments and merged segments <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedgraph.zip">before merging</a> and <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic.bedgraph.zip">after merging</a>.
 
 -----------------------------------------------------------------------------------------------------------------------
+### To replicate the results, please consult the BeforeSegmentation.sh, Segmentation.R and AfterSegmentation.sh scripts in that order.
 <b>Note: The necessary bed files for mm10 can be downloaded from <a href="http://nikleotide.com/wp-content/uploads//2018/04/mm10.bed_.files_.zip">here</a>.</b>
