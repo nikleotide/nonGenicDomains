@@ -23,4 +23,10 @@ You can download the segments and merged segments <a href="http://nikleotide.com
 
 -----------------------------------------------------------------------------------------------------------------------
 ### To replicate the results, please consult the BeforeSegmentation.sh, Segmentation.R and AfterSegmentation.sh scripts in that order.
-<b>Note: The necessary bed files for mm10 can be downloaded from <a href="http://nikleotide.com/wp-content/uploads//2018/04/mm10.bed_.files_.zip">here</a>.</b>
+<b>Note: The necessary bed files for mm10 can be downloaded from <a href="http://nikleotide.com/wp-content/uploads//2018/04/mm10.bed_.files_.zip">here</a>.
+<br>
+ The bam files also can be found here:
+ /project/6007495/hchen009/Data/K36M/Simon/K36M/chip_seq/C3H10T1/
+</b>
+
+
