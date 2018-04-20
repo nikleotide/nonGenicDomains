@@ -8,8 +8,8 @@ You can also download the bedgraph files from <a href="http://nikleotide.com/wp-
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot.png)
 
-Out of different scales, it seems 50kb to be a suitable threshold for large domains. I used the 50kb segmentation and intersect it with the nongenic regions actoss mm10 genome. Below is a screenshot of how its bedgraph looks like. 
+Out of different scales, it seems 50kb to be a suitable threshold for large domains. I used the 50kb segmentation and intersect it with the nongenic regions actoss mm10 genome. The results were filtered for segments (now all intergenic) that their segmentation value is > 0.5 (i.e. average of normalized read counts over the 1kb windows included in each segment). Below is a screenshot of how its bedgraph looks like. 
 
-
+![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot2.png)
 
 However, it seems it still
