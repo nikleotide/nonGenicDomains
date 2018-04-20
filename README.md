@@ -20,3 +20,6 @@ However, it seems it still exist some segments neighboring each other which can 
 #### Out of 3698 segments, after merging there are 2696 larger segments left. After filtering for minimum 500kb size of the intergenic segments, there are 114 segments left.
 
 You can download the segments and merged segments <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedgraph.zip">before merging</a> and <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic.bedgraph.zip">after merging</a>.
+
+-----------------------------------------------------------------------------------------------------------------------
+<b>Note: The necessary bed files for mm10 can be downloaded from <a href="http://nikleotide.com/wp-content/uploads//2018/04/mm10.bed_.files_.zip">here</a>.</b>
