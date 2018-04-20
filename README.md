@@ -15,3 +15,4 @@ Out of different scales, it seems 50kb to be a suitable threshold for large doma
 However, it seems it still exist some segments neighboring each other which can be put together as a bigger segment since their values are very close. What I did was to merge the bed file containing the segment data and use the average of the value of segments merging together as their final value. Below is the same screenshot with the new merged bed file added.
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot3.png)
+
