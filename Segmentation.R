@@ -2,7 +2,7 @@ library(changepoint)
 options(scipen=999)
 
 
-DIR="/media/behnam/Black_Seagate2/Mouse/Figure1C/4252_4295_C3H10T1_Parental_H3K36me2/"
+DIR="WHERE YOU KEEP YOUR 1kb WINDOW COVERAGE OF INPUT AND MARK READ COUNTS"
 samplename=gsub(".*/","",gsub("/$","",DIR))
 intermediatename="nzi"
 finalname="Round2-2"
