@@ -46,7 +46,5 @@ Below is a screenshot of the results. The tracks are ordered as:
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot-merged-intersected.png)
 
-1. James Madison
-2. James Monroe
-3. John Quincy Adams
+
 
