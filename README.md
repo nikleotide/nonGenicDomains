@@ -1,7 +1,9 @@
 # nonGenicDomains
 Creating domains of broad histone marks in nonGenic regions
 
-#### First I tried different scaled for segmentation. From segments of haboring minimum two windows of 1kb to 200 windows. Below is a screenshot of the results on IGV.
+# 1kbWindow > Segment50w > Intersect > Filter > Merge
+## Merging after intersecing
+First I tried different scaled for segmentation. From segments of haboring minimum two windows of 1kb to 200 windows. Below is a screenshot of the results on IGV.
 (You can click on the image for a higher resolution picture)
 
 You can also download the bedgraph files from <a href="http://nikleotide.com/wp-content/uploads//2018/04/different_scales.zip">here</a> and the bigwig file for this samples and its input can be found on graham, here: <b>  /project/6007495/nikbakht/nonGenic/ </b>. <br><br>
@@ -30,6 +32,7 @@ To replicate the results, please consult the BeforeSegmentation.sh, Segmentation
 </b>
 
 -----------------------------------------------------------------------------------------------------------------------
+# 1kbWindow > Segment50w > Filter > Merge > Intersect
 ## Merging the segments before intersecting them with Genic/NonGenic regions
 <br>
 The bedgraph files for this igv session can be downloaded from <a href="http://nikleotide.com/wp-content/uploads//2018/04/Merged_then_Intersected.zip">here</a>
