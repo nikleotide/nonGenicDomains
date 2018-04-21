@@ -32,7 +32,7 @@ To replicate the results, please consult the BeforeSegmentation.sh, Segmentation
 -----------------------------------------------------------------------------------------------------------------------
 ## Merging the segments before intersecting them with Genic/NonGenic regions
 <br>
-The bedgraph files for this igv session can be downloaded from <a href="">here</a>
+The bedgraph files for this igv session can be downloaded from <a href="https://github.com/nikleotide/nonGenicDomains/blob/master/Merged_then_Intersected.zip">here</a>
 Below is a screenshot of the results. The tracks are ordered as:
 1- Actual bw from histone mark
 2- Input bw track
