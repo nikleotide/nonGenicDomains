@@ -22,7 +22,7 @@ However, it seems it still exist some segments neighboring each other which can 
 You can download the segments and merged segments <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedgraph.zip">before merging</a> and <a href="http://nikleotide.com/wp-content/uploads//2018/04/Parental_H3K36me2-50kb-H3K36me2-NonGenic.bedgraph.zip">after merging</a>.
 
 -----------------------------------------------------------------------------------------------------------------------
-### To replicate the results, please consult the BeforeSegmentation.sh, Segmentation.R and AfterSegmentation.sh scripts in that order.
+To replicate the results, please consult the BeforeSegmentation.sh, Segmentation.R and AfterSegmentation.sh scripts in that order.
 <b>Note: The necessary bed files for mm10 can be downloaded from <a href="http://nikleotide.com/wp-content/uploads//2018/04/mm10.bed_.files_.zip">here</a>.
 <br>
  The bam files also can be found here:
@@ -32,6 +32,7 @@ You can download the segments and merged segments <a href="http://nikleotide.com
 -----------------------------------------------------------------------------------------------------------------------
 ## Merging the segments before intersecting them with Genic/NonGenic regions
 <br>
+The bedgraph files for this igv session can be downloaded from <a href="">here</a>
 Below is a screenshot of the results. The tracks are ordered as:
 1- Actual bw from histone mark
 2- Input bw track
