@@ -1,3 +1,4 @@
+## 1kbWindow > Segment50w > Intersect > Filter > Merge 
 # results from 50kb minimum
 # to merge neighboring segments of high values, first we have to filter the genic regions out and also filter out those that are smaller than 100kb and have low values of mark
 bedtools intersect -a mm10hgTables_NonGenic.bed -b 4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed.bedgraph -wb | cut -f 1-3,7 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5 && $5 > 50) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedgraph 
@@ -7,6 +8,7 @@ bedtools merge -d 10 -i Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedg
 
 
 ####################################################################################################
+## 1kbWindow > Segment50w > Filter > Merge > Intersect
 
 ## In case of merging before intersectioning with genic/intergenic bed files
 ## First adding the length of each segment and filtering out those below 0.5 and smaller than 50 (trailing ones)
