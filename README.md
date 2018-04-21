@@ -34,6 +34,7 @@ To replicate the results, please consult the BeforeSegmentation.sh, Segmentation
 <br>
 The bedgraph files for this igv session can be downloaded from <a href="https://github.com/nikleotide/nonGenicDomains/blob/master/Merged_then_Intersected.zip">here</a>
 Below is a screenshot of the results. The tracks are ordered as:
+
 1. Actual bw from histone mark 
 2. Input bw track 
 3. Only segmentation (no filtering, not merging, no intersection) 
@@ -45,5 +46,7 @@ Below is a screenshot of the results. The tracks are ordered as:
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot-merged-intersected.png)
 
-
+1. James Madison
+2. James Monroe
+3. John Quincy Adams
 
