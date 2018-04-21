@@ -29,4 +29,19 @@ You can download the segments and merged segments <a href="http://nikleotide.com
  /project/6007495/hchen009/Data/K36M/Simon/K36M/chip_seq/C3H10T1/
 </b>
 
+-----------------------------------------------------------------------------------------------------------------------
+## Merging the segments before intersecting them with Genic/NonGenic regions
+<br>
+Below is a screenshot of the results. The tracks are ordered as:
+1- Actual bw from histone mark
+2- Input bw track
+3- Only segmentation (no filtering, not merging, no intersection)
+4- Only segmentation plus filtering (if I don't don filtering all segments will merge together; i.e. we will have one big segment per chromosome at the end)
+5- Segmentation + filtering + merging
+6- Segmentation + filtering + merging + intersected with NonGenic regions
+7- Segmentation + filtering + merging + intersected with Genic regions
+
+![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot-merged-intersected.png)
+
+
 
