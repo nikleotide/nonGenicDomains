@@ -34,13 +34,14 @@ To replicate the results, please consult the BeforeSegmentation.sh, Segmentation
 <br>
 The bedgraph files for this igv session can be downloaded from <a href="https://github.com/nikleotide/nonGenicDomains/blob/master/Merged_then_Intersected.zip">here</a>
 Below is a screenshot of the results. The tracks are ordered as:
-1. Actual bw from histone mark
-2. Input bw track
-3. Only segmentation (no filtering, not merging, no intersection)
-4. Only segmentation plus filtering (if I don't don filtering all segments will merge together; i.e. we will have one big segment per chromosome at the end)
-5. Segmentation + filtering + merging
-6. Segmentation + filtering + merging + intersected with NonGenic regions
-7. Segmentation + filtering + merging + intersected with Genic regions
+1. Actual bw from histone mark 
+2. Input bw track 
+3. Only segmentation (no filtering, not merging, no intersection) 
+4. Only segmentation plus filtering (if I don't don filtering all segments will merge together; i.e. we will have one big segment per chromosome at the end) 
+5. Segmentation + filtering + merging 
+6. Segmentation + filtering + merging + intersected with NonGenic regions 
+7. Segmentation + filtering + merging + intersected with Genic regions 
+<br>
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot-merged-intersected.png)
 
