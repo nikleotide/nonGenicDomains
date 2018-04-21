@@ -24,3 +24,4 @@ bedtools intersect -a mm10hgTables_NonGenic.bed -b Parental_H3K36me2-50kb-H3K36m
 bedtools intersect -a mm10hgTables_Genic.bed -b Parental_H3K36me2-50kb-H3K36me2-MERGED-ALL.bedgraph -wb | cut -f 1-3,7 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5 && $5 > 50) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > Parental_H3K36me2-50kb-H3K36me2-MERGED-GENIC.bedgraph
 
 #
+
