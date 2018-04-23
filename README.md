@@ -66,7 +66,7 @@ Below is an example of how they look like:
 8. Intergenic annotation from UCSC (mm10)
 <br>
 Bedgraph files can be downloaded from <a href="https://github.com/nikleotide/nonGenicDomains/blob/master/New_Segments_two_level.zip">here</a>. 
-<br>
+<br><br>
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot4.png)
 
