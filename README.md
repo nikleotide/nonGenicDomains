@@ -58,7 +58,7 @@ This is to account for lower level trailing stretches of marks which are higher 
 Below is an example of how they look like:
 1. Mark
 2. Input
-3. SICER results to compare (garbage results from sicer for this mark even though it worked okay with K27me3)
+3. SICER results to compare (not very impressive results from sicer for this mark even though it worked fine with K27me3 mark)
 4. Resulting segments before intersecting with genic/nongenic 
 5. Genic segments
 6. Genic annotation from UCSC (mm10)
