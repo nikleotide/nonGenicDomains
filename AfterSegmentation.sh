@@ -21,9 +21,9 @@ bedtools merge -d 10 -i ../4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4
 
 # Now time for intersecting with Genic/NonGenic
 # For NonGenic
-bedtools intersect -a mm10hgTables_NonGenic.bed -b Parental_H3K36me2-50kb-H3K36me2-MERGED-ALL.bedgraph -wb | cut -f 1-3,7 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5 && $5 > 50) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > Parental_H3K36me2-50kb-H3K36me2-MERGED-NON-GENIC.bedgraph
+behnam:Figure1C$ bedtools intersect -b NonGenic/mm10hgTables_NonGenic.bed -a 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/Parental_H3K36me2-50kb-H3K36me2-FILTERED_VALUE-MERGED-ALL.bedgraph |  cut -f 1-4 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/Parental_H3K36me2-50kb-H3K36me2-FILTERED_VALUE-MERGED-NONGENIC.bedgraph
 # And for Genic
-bedtools intersect -a mm10hgTables_Genic.bed -b Parental_H3K36me2-50kb-H3K36me2-MERGED-ALL.bedgraph -wb | cut -f 1-3,7 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5 && $5 > 50) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > Parental_H3K36me2-50kb-H3K36me2-MERGED-GENIC.bedgraph
+bedtools intersect -b NonGenic/mm10hgTables_Genic.bed -a 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/Parental_H3K36me2-50kb-H3K36me2-FILTERED_VALUE-MERGED-ALL.bedgraph |  cut -f 1-4 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/Parental_H3K36me2-50kb-H3K36me2-FILTERED_VALUE-MERGED-GENIC.bedgraph
 
 #
 
