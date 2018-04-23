@@ -11,13 +11,13 @@ bedtools merge -d 10 -i Parental_H3K36me2-50kb-H3K36me2-NonGenic-NOT-MERGED.bedg
 ## 1kbWindow > Segment50w > Filter > Merge > Intersect
 
 ## In case of merging before intersectioning with genic/intergenic bed files
-## First adding the length of each segment and filtering out those below 0.5 and smaller than 50 (trailing ones)
-awk '{if (($3-$2)/1000 > 50 && $4 > 0.5) print $0"\t"($3-$2)/1000}' ../4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed.bedgraph > ../4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed-filtered-LENGTH.bedgraph
+## First adding the length of each segment and filtering out those below 0.5
+awk '{if ($4 > 0.5) print $0"\t"($3-$2)/1000}' 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed.bedgraph > 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed.filtered_VALUE0.5.bedgraph
 #  9647 segments
 
 # Next is merging them
-bedtools merge -d 10 -i ../4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed-filtered-LENGTH.bedgraph -c 4,5,1 -o mean,sum,count > Parental_H3K36me2-50kb-H3K36me2-MERGED-ALL.bedgraph
-# 2483 merged segments including both genic and nongenic
+bedtools merge -d 10 -i 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/4252_4295_C3H10T1_Parental_H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.fixed.filtered_VALUE0.5.bedgraph -c 4,5,1 -o mean,sum,count > 4252_4295_C3H10T1_Parental_H3K36me2/Segmentation_50/Parental_H3K36me2-50kb-H3K36me2-FILTERED_VALUE-MERGED-ALL.bedgraph
+#  merged segments including both genic and nongenic
 
 # Now time for intersecting with Genic/NonGenic
 # For NonGenic
