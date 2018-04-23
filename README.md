@@ -49,5 +49,27 @@ Below is a screenshot of the results. The tracks are ordered as:
 
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot-merged-intersected.png)
 
+-----------------------------------------------------------------------------------------------------------------------
+# 1kbWindow > Segment50w > Filter and subset for value  > Merge within subsets > Concatanation > Intersect
+## In this approach, I will use different hight threshold values for merging. Then, concatante the merged results and sort them before intersecting them with Genic/NonGenic regions
+
+This is to account for lower level trailing stretches of marks which are higher than zero but not as high as their neighboring mark domains.
+
+Below is an example of how they look like:
+1. Mark
+2. Input
+3. SICER results to compare (garbage results from sicer for this mark even though it worked okay with K27me3)
+4. Resulting segments before intersecting with genic/nongenic 
+5. Genic segments
+6. Genic annotation from UCSC (mm10)
+7. Intergenic segments
+8. Intergenic annotation from UCSC (mm10)
+<br>
+![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot4.png)
+
+
+
+
+
 
 
