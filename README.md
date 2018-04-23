@@ -51,7 +51,7 @@ Below is a screenshot of the results. The tracks are ordered as:
 
 -----------------------------------------------------------------------------------------------------------------------
 # 1kbWindow > Segment50w > Filter and subset for value  > Merge within subsets > Concatanation > Intersect
-## In this approach, I will use different hight threshold values for merging. Then, concatante the merged results and sort them before intersecting them with Genic/NonGenic regions
+### In this approach, I will use two different hight threshold values for merging. The results are two subset of segments each containing a merged subset of segments with different hight thresholds. Then, I concatante the two merged result subsets  and sort them before intersecting them with Genic/NonGenic regions.
 
 This is to account for lower level trailing stretches of marks which are higher than zero but not as high as their neighboring mark domains.
 
