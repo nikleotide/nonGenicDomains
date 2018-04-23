@@ -65,6 +65,7 @@ Below is an example of how they look like:
 7. Intergenic segments
 8. Intergenic annotation from UCSC (mm10)
 <br>
+
 ![alt text](http://nikleotide.com/wp-content/uploads//2018/04/igv_snapshot4.png)
 
 
