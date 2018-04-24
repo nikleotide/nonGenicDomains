@@ -1,6 +1,13 @@
 ## Creating the 1kb window bed files:
+if [ -e "mm10.chrom.sizes" ]
+then
+wget http://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes &&
+cat mm10.chrom.sizes  | grep -v -e '_\|chrM' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > mm10_21chr.genome
+fi
+if [ -e "mm10_1kb_intervals.bed" ]
+then
 bedtools makewindows -g mm10_21chr.genome -w 1000 | awk '{print $1"\t"$2+1"\t"$3}' > mm10_1kb_intervals.bed
-
+fi
 ## Creating 1kb windows from the bam files (adjust the path accordingly) using the bed file created above:
 bedtools multicov -q 50 -bed mm10_200b_intervals.bed -bams 4252_4295_C3H10T1_K36M_H3K36me2.sorted.bam 4252_4295_C3H10T1_K36M_input.sorted.bam > K36M_1kb_K36me2_input.cvrg
 
