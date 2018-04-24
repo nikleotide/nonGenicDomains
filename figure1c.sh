@@ -5,7 +5,7 @@
 #NOTE: In order to call the trailing streteches of high peaks as separate entities, I use to different threshold for filtering the segments (based on their values). One of them, I used threshold of 1.0 and the other one 0.5-1.0 and then merge each subset separately. Next I will concatenate the resulting segments and intersect them with genic/nongenic
 
 
-for file in test/Segmentation_50/*50kb-*fixed.bedgraph
+for file in */Segmentation_50/*50kb-*fixed.bedgraph
 do
 echo 
 awk '{if ($4 >= 1.0) print $0"\t"($3-$2)/1000}' $file > ${file/.fixed/.fixed.filtered_VALUE1.0.bedgraph}
