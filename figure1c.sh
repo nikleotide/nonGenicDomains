@@ -1,5 +1,10 @@
 #!/bin/bash
+
+
 # For the sake of figure 1c, we don't need the trailing domains. Only domains that are very obvious. Thus I only take the > 1 values.
+
+####################################################################################################
+## A) Segmentation and merging the histone marks, filtering for 500kb size and then intersecting them with genic/nongenic 
 ####################################################################################################
 ## 1kbWindow > Segment50w > Filter > Merge > Intersect
 #NOTE: In order to call the trailing streteches of high peaks as separate entities, I use to different threshold for filtering the segments (based on their values). One of them, I used threshold of 1.0 and the other one 0.5-1.0 and then merge each subset separately. Next I will concatenate the resulting segments and intersect them with genic/nongenic
@@ -23,7 +28,11 @@ rm ${file/fixed.bedgraph/-FILTERED_VALUE1.0-MERGED-ALL.bedgraph}
 rm ${file/.fixed/.fixed.filtered_VALUE1.0.bedgraph}
 done
 
-# To calculate the average methylation in the large, large-nongenic and large-genic domains
+
+####################################################################################################
+## B) Calculating the average methylation in the large, large-nongenic and large-genic domain 
+####################################################################################################
+
 ## ALL Large
 bedtools intersect -a H3K36me2/Segmentation_50/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_ALL.LARGE-K36me2_CpG_counts.dat
 intersectBed -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_ALL.LARGE-K36me2_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_ALL.LARGE-K36me2_CpG_counts_sum_average.dat
