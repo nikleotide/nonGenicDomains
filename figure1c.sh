@@ -18,3 +18,8 @@ bedtools intersect -b NonGenic/mm10hgTables_NonGenic.bed -a ${file/fixed.bedgrap
 echo
 bedtools intersect -b NonGenic/mm10hgTables_Genic.bed -a ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.bedgraph} |  cut -f 1-4 | awk '{print $0"\t"($3-$2)/1000}' | awk '{if ($4 > 0.5) print $0}' | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.GENIC.bedgraph}
 done
+
+
+### Update
+
+# only work on WT(parental sample)
