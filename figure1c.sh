@@ -22,3 +22,12 @@ bedtools intersect -b /media/behnam/Black_Seagate2/Mouse/Data/mm10hgTables_Genic
 rm ${file/fixed.bedgraph/-FILTERED_VALUE1.0-MERGED-ALL.bedgraph}
 rm ${file/.fixed/.fixed.filtered_VALUE1.0.bedgraph}
 done
+
+
+bedtools intersect -a H3K36me2/Segmentation_50/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_LARGE-K36me2_CpG_counts.dat
+intersectBed -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_LARGE-K36me2_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_LARGE-K36me2_CpG_counts_sum_average.dat
+
+
+
+
+
