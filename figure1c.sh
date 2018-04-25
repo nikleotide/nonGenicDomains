@@ -46,5 +46,15 @@ bedtools intersect -a H3K36me2/Segmentation_50/H3K36me2-50kb-H3K36me2-1stComplet
 intersectBed -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_GENIC.LARGE-K36me2_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_GENIC.LARGE-K36me2_CpG_counts_sum_average.dat
 
 
+####################################################################################################
+## C) NOT NECESSARY BUT FOR FUTURE REFERENCE
+## To segment methylation
+####################################################################################################
+
+# First, before running the segmentation script:
+intersectBed -a /media/behnam/Black_Seagate2/Mouse/Data/mm10_1kb_intervals.bed -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1kb_CpG_counts.dat
+intersectBed -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1kb_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4 -c 8 -o sum | awk '{print $0"\t"$5/$4}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_Methylation_CpGcount_sum_average.bedgraph
+
+#Then run the Segmentation_Methylation.R on the output
 
 
