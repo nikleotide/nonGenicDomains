@@ -1,3 +1,8 @@
+## Before running this script, you need to calculate the average of methylation based on the CpG count and the ratio of methylated Cs in each window of CpGs
+# intersectBed -a /media/behnam/Black_Seagate2/Mouse/Data/mm10_1kb_intervals.bed -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1kb_CpG_counts.dat
+# intersectBed -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1kb_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4 -c 8 -o sum | awk '{print $0"\t"$5/$4}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_Methylation_CpGcount_sum_average.bedgraph
+
+
 library(changepoint)
 
 options(scipen=999)
