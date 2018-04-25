@@ -3,8 +3,6 @@
 ####################################################################################################
 ## 1kbWindow > Segment50w > Filter > Merge > Intersect
 #NOTE: In order to call the trailing streteches of high peaks as separate entities, I use to different threshold for filtering the segments (based on their values). One of them, I used threshold of 1.0 and the other one 0.5-1.0 and then merge each subset separately. Next I will concatenate the resulting segments and intersect them with genic/nongenic
-
-#!/bin/bash
 for file in */Segmentation_50/*50kb-*fixed.bedgraph
 do
 echo $file 
