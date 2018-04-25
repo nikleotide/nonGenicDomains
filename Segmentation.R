@@ -2,14 +2,13 @@ library(changepoint)
 options(scipen=999)
 
 
-DIR="WHERE YOU KEEP YOUR 1kb WINDOW COVERAGE OF INPUT AND MARK READ COUNTS"
+DIR="/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/H3K27me3/"
 samplename=gsub(".*/","",gsub("/$","",DIR))
 intermediatename="nzi"
-finalname="Round2-2"
 numberOfWindows=50     
-mark="H3K36me2"
+mark="H3K27me3"
 
-input_mark00<-read.csv(paste(DIR,"4252_4295_C3H10T1_Parental_H3K36me2_input.CVRG",sep=""), header = FALSE, col.names = c("Chr","Start","End","markdepth","input"),sep = "\t",colClasses = c("character","integer","integer","integer","integer"))
+input_mark00<-read.csv(paste(DIR,"3607_3641_C3H10T1_Parental_H3K27me3_input.CVRG",sep=""), header = FALSE, col.names = c("Chr","Start","End","markdepth","input"),sep = "\t",colClasses = c("character","integer","integer","integer","integer"))
 #To try a new way, add the line below otherwise, comment it out.
 DIR=paste(DIR,"Segmentation_",numberOfWindows,"/",sep="")
 system(paste("mkdir -p ",DIR,sep=""))
@@ -21,14 +20,15 @@ for (CHR in c("chr1","chr10","chr11","chr12","chr13","chr14","chr15","chr16","ch
   print (CHR)
   input_mark0<-subset(input_mark00,(input_mark00$Chr==CHR))
   
-  input_mark0<-subset(input_mark0,(input_mark0$input>0))
-  
   input_mark0$input<-input_mark0$input+1
   input_mark0$markdepth<-input_mark0$markdepth+1
   input_mark0$normalized<-(input_mark0$markdepth/sum(input_mark0$markdepth))/(input_mark0$input/sum(input_mark0$input))
-  
   input_mark0$scaled<-input_mark0$normalized
-  #(input_mark0$normalized-min(input_mark0$normalized))/(max(input_mark0$normalized)-min(input_mark0$normalized))
+  for (i in 1:nrow(input_mark0)){
+  if(input_mark0$input[i]==1 && input_mark0$markdepth[i]==1){
+    input_mark0$scaled[i]=0
+  }
+  }
   input_mark<-input_mark0
   
   moment<-rbind(moment,input_mark0)
@@ -75,4 +75,6 @@ finalfile<-paste(DIR,samplename,"-",numberOfWindows,"kb-",mark,"-1stComplete_Gen
 write.table(fixed,finalfile,sep="\t",col.names = FALSE,row.names = FALSE)
 
 system(paste("sed -i 's/\"//g' ", finalfile,sep = ""))
-
+system(paste("rm ",DIR,"/",intermediatename,"*",sep=""))
+system(paste("rm ",DIR,"/","*-1stComplete_Genome-peaks.bedgraph",sep=""))
+system(paste("rm ",DIR,"/","*-1stComplete_Genome-peaks.corrected.bedgraph",sep=""))
