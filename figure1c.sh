@@ -17,12 +17,12 @@ bedtools merge -d 10 -i ${file/.fixed/.fixed.filtered_VALUE1.0.bedgraph} -c 4,5,
 echo
 cat ${file/fixed.bedgraph/-FILTERED_VALUE1.0-MERGED-ALL.bedgraph} | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed -e 's/^chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.bedgraph}
 echo
-awk '{if ($3-$2 > 500000) print $0}' ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.bedgraph} > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph}
+awk '{if ($3-$2 > 500000) print $0}' ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.bedgraph} > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.LARGE.bedgraph}
 echo
 
-bedtools intersect -b /media/behnam/Black_Seagate2/Mouse/Data/mm10hgTables_NonGenic.bed -a ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph} | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph}
+bedtools intersect -b /media/behnam/Black_Seagate2/Mouse/Data/mm10hgTables_NonGenic.bed -a ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.LARGE.bedgraph} | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph}
 echo
-bedtools intersect -b /media/behnam/Black_Seagate2/Mouse/Data/mm10hgTables_Genic.bed -a ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph} | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph}
+bedtools intersect -b /media/behnam/Black_Seagate2/Mouse/Data/mm10hgTables_Genic.bed -a ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.LARGE.bedgraph} | sed 's/chrX/chr23/' | sed 's/chrY/chr24/' | sed 's/chr//' | sort -k1,1n -k2,2n | sed 's/^/chr/' | sed 's/chr23/chrX/' | sed 's/chr24/chrY/' > ${file/fixed.bedgraph/-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph}
 
 rm ${file/fixed.bedgraph/-FILTERED_VALUE1.0-MERGED-ALL.bedgraph}
 rm ${file/.fixed/.fixed.filtered_VALUE1.0.bedgraph}
@@ -34,8 +34,8 @@ done
 ####################################################################################################
 
 ## ALL Large
-bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/H3K36me2/Segmentation_50/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_ALL.LARGE-K36me2_CpG_counts.dat
-bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_ALL.LARGE-K36me2_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_ALL.LARGE-K36me2_CpG_counts_sum_average.dat
+bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/H3K36me2/Segmentation_50/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_LARGE-K36me2_CpG_counts.dat
+bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_LARGE-K36me2_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_LARGE-K36me2_CpG_counts_sum_average.dat
 
 ## Large-nongenic
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/H3K36me2/Segmentation_50/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Parental_C3H10T_BS_NONGENIC.LARGE-K36me2_CpG_counts.dat
@@ -57,7 +57,7 @@ bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Onl
 #main/CpG-Counts
 #go to the methylation directory and run these three loops
 
-for file in *.profile.cg_strand_combined.bedgraph; do bedtools intersect -a ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/K9me3_Domains/H3K9me3-50kb-H39me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph -b $file -c > ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/CpG-Counts/${file/1.profile.cg_strand_combined.bedgraph/ALL.LARGE-K36me2_CpG_counts.dat};done
+for file in *.profile.cg_strand_combined.bedgraph; do bedtools intersect -a ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/K9me3_Domains/H3K9me3-50kb-H39me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.LARGE.bedgraph -b $file -c > ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/CpG-Counts/${file/1.profile.cg_strand_combined.bedgraph/LARGE-K36me2_CpG_counts.dat};done
 
 
 for file in *.profile.cg_strand_combined.bedgraph; do bedtools intersect -a ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/K9me3_Domains/H3K9me3-50kb-H39me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph -b $file -c > ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/CpG-Counts/${file/1.profile.cg_strand_combined.bedgraph/GENIC.LARGE-K36me2_CpG_counts.dat};done
