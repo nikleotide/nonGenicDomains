@@ -48,20 +48,28 @@ bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Onl
 
 
 ####################################################################################################
-## B-2) Looping over all cells and marks
+## B-2) Looping over all cells and marks (MAKE SURE ABOUT THE MARK NAMES)
 ####################################################################################################
 # the directory strucyture looks like this:
 # main= /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/Data/Only_Parental/Methylation/Methylation_in_3_Parental_Domains_3_Cells/Parental_K27me3_Domains_vs_Methylation_in_3_Cells
 
 # first creating the cpg count files
 #main/CpG-Counts
+#go to the methylation directory and run these three loops
+
+for file in *.profile.cg_strand_combined.bedgraph; do bedtools intersect -a ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/K9me3_Domains/H3K9me3-50kb-H39me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph -b $file -c > ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/CpG-Counts/${file/1.profile.cg_strand_combined.bedgraph/ALL.LARGE-K36me2_CpG_counts.dat};done
+
+
+for file in *.profile.cg_strand_combined.bedgraph; do bedtools intersect -a ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/K9me3_Domains/H3K9me3-50kb-H39me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph -b $file -c > ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/CpG-Counts/${file/1.profile.cg_strand_combined.bedgraph/GENIC.LARGE-K36me2_CpG_counts.dat};done
+
+
+for file in *.profile.cg_strand_combined.bedgraph; do bedtools intersect -a ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/K9me3_Domains/H3K9me3-50kb-H39me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph -b $file -c > ../Parental_K9me3_Domains_vs_Methylation_in_3_Cells/CpG-Counts/${file/1.profile.cg_strand_combined.bedgraph/NONGENIC.LARGE-K36me2_CpG_counts.dat};done
 
 
 
-
-
+####### NEXT ###################3
 # once done, go to the cpg count directory and run this
-for file in *;do echo "bedtools intersect -a $file -b ../../Raw_Methylation_bedgraphs_3_Cells/${file/_BS_*/_BS_1.profile.cg_strand_combined.bedgraph} -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print \$0\"\t\"\$8/\$7}' > ../CpG_counts_sum_average/${file/-K27me3_CpG_counts.dat/-Parental-K27me3-domain_CpG_counts_sum_average.dat}" | bash;done
+for file in *;do echo "bedtools intersect -a $file -b ../../Raw_Methylation_bedgraphs_3_Cells/${file/_BS_*/_BS_1.profile.cg_strand_combined.bedgraph} -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print \$0\"\t\"\$8/\$7}' > ../CpG_counts_sum_average/${file/-K36me2_CpG_counts.dat/-Parental-K36me2-domain_CpG_counts_sum_average.dat}" | bash;done
 
 #The results will be here:
 #main/CpG_counts_sum_average
