@@ -27,6 +27,19 @@ for file in *.bam;do echo $file;samtools flagstat $file | grep mapped | grep -e 
 51730034
 #P2-3.sorted.bam
 55686982
+#D1_rep1.sorted.bam
+99382598
+#D1_rep2.sorted.bam
+102524850
+#D1_rep3.sorted.bam
+102674864
+#K36R-1.sorted.bam
+47665668
+#K36R-2.sorted.bam
+44597754
+#K36R-3.sorted.bam
+42799344
+
 
 # Next, running bedtools multicov on all the bam files at the same time using the domains and subdomains (genic/nongenic) as the input bed file. This needs to be done for all WT-domain-marks
 
