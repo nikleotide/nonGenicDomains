@@ -3,6 +3,8 @@
 # /media/behnam/Black_Seagate2/Mouse/Data/mm10hgTables_NonGenic.bed
 
 # We use these files to intersect with methylation and measure their methylation in each gene/non-gene region and compare their changes from cell to cell
+### Repeat these steps below for all the cell lines
+
 
 ## Genic
 # 1) Count the number of CpGs
