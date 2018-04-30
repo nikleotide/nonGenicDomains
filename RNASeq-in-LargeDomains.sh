@@ -42,25 +42,30 @@ for file in *.bam;do echo $file;samtools flagstat $file | grep mapped | grep -e 
 # GENIC LARGE K9me3
 /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/K9me3_Domains/H3K9me3-50kb-H3K9me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph
 
-
-###### K36me3
-# LARGE K36me3
-
-
-# NONGENIC K36me3
-
-
-# GENIC K36me3
-
-
 ###### K27me3
+
 # LARGE K27me3
+/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K27me3_Domains_vs_Methylation_in_4_Cells/K27me3_Domains/H3K27me3-50kb-H3K27me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph
+
+# NONGENIC LARGE K27me3
+/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K27me3_Domains_vs_Methylation_in_4_Cells/K27me3_Domains/H3K27me3-50kb-H3K27me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph
+
+# GENIC LARGE K27me3
+/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K27me3_Domains_vs_Methylation_in_4_Cells/K27me3_Domains/H3K27me3-50kb-H3K27me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph
+
+###### K36me2
+
+# LARGE K36me2
+/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K36me2_Domains_vs_Methylation_in_4_Cells/K36me2_Domains/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph
+
+# NONGENIC LARGE K36me2
+/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K36me2_Domains_vs_Methylation_in_4_Cells/K36me2_Domains/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph
+
+# GENIC LARGE K36me2
+/media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K36me2_Domains_vs_Methylation_in_4_Cells/K36me2_Domains/H3K36me2-50kb-H3K36me2-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph
 
 
-# NONGENIC K27me3
 
-
-# GENIC K27me3
 
 
 
