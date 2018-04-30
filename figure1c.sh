@@ -35,26 +35,26 @@ done
 # This is only for K9me3, for other marks only replace all the K9me3s with the name of the replacement mark
 ## ALL Large
 
+# 1)
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/K9me3_Domains/H3K9me3-50kb-H3K9me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.ALL.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Raw_Methylation_bedgraphs_4_Cells/B1_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG-Counts/B1_C3H10T_BS_ALL.LARGE-K9me3_CpG_counts.dat
 
-
-
+# 2)
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG-Counts/B1_C3H10T_BS_ALL.LARGE-K9me3_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Raw_Methylation_bedgraphs_4_Cells/B1_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG_counts_sum_average/B1_C3H10T_BS_LARGE-Parental-K9me3-domain_CpG_counts_sum_average.dat
 
 
 # NONGENIC
+# 1)
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/K9me3_Domains/H3K9me3-50kb-H3K9me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.NONGENIC.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Raw_Methylation_bedgraphs_4_Cells/B1_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG-Counts/B1_C3H10T_BS_NONGENIC.LARGE-K9me3_CpG_counts.dat
 
-
-
+# 2)
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG-Counts/B1_C3H10T_BS_NONGENIC.LARGE-K9me3_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Raw_Methylation_bedgraphs_4_Cells/B1_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG_counts_sum_average/B1_C3H10T_BS_NONGENICLARGE-Parental-K9me3-domain_CpG_counts_sum_average.dat
 
 
 # GENIC
+# 1)
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/K9me3_Domains/H3K9me3-50kb-H3K9me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Raw_Methylation_bedgraphs_4_Cells/B1_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -c > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG-Counts/B1_C3H10T_BS_GENIC.LARGE-K9me3_CpG_counts.dat
 
-
-
+# 2)
 bedtools intersect -a /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG-Counts/B1_C3H10T_BS_GENIC.LARGE-K9me3_CpG_counts.dat -b /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Raw_Methylation_bedgraphs_4_Cells/B1_C3H10T_BS_1.profile.cg_strand_combined.bedgraph -wa -wb | groupBy -g 1,2,3,4,5,6,7 -c 11 -o sum | awk '{print $0"\t"$8/$7}' > /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K9me3_Domains_vs_Methylation_in_4_Cells/CpG_counts_sum_average/B1_C3H10T_BS_GENICLARGE-Parental-K9me3-domain_CpG_counts_sum_average.dat
 
 
