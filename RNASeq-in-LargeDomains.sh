@@ -28,3 +28,5 @@ for file in *.bam;do echo $file;samtools flagstat $file | grep mapped | grep -e 
 #P2-3.sorted.bam
 55686982
 
+# Next, running bedtools multicov on all the bam files at the same time using the domains and subdomains (genic/nongenic) as the input bed file
+
