@@ -81,8 +81,16 @@ sed -i '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB2-1\tB2-2\tB2-3\tC22-1
 # GENIC LARGE K27me3
 /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K27me3_Domains_vs_Methylation_in_4_Cells/K27me3_Domains/H3K27me3-50kb-H3K27me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph
 
+# I put all these locations in a file called: bedfiles_run.sh and then run this script (Stored in complete_run.sh)
+# To created the complete_run.sh I used this command below:
 
-# To do the counting
-# bedtools multicov -q 50 -bed one_of_the_bedgraphs_above -bams list_of_bams
+cat bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "bedtools multicov -q 50 -bed "$2" -bams B2-1.sorted.bam B2-2.sorted.bam B2-3.sorted.bam C22-1.sorted.bam C22-2.sorted.bam C22-3.sorted.bam D1_rep1.sorted.bam D1_rep2.sorted.bam D1_rep3.sorted.bam K36M-1.sorted.bam K36M-2.sorted.bam K36M-3.sorted.bam K36R-1.sorted.bam K36R-2.sorted.bam K36R-3.sorted.bam P2-1.sorted.bam P2-2.sorted.bam P2-3.sorted.bam > "$1".0.tsv"} else print $0}' >> complete_run.sh
+
+# and added this line to the end of complete_run.sh to add headers:
+for file in *.0.tsv
+do
+sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB2-1\tB2-2\tB2-3\tC22-1\tC22-2\tC22-3\tD1_rep1\tD1_rep2\tD1_rep3\tK36M-1\tK36M-2\tK36M-3\tK36R-1\tK36R-2\tK36R-3\tP2-1\tP2-2\tP2-3\n/' $file > ${file/.0.tsv/.tsv}
+done
+
 
 
