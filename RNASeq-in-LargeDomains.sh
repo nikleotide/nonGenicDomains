@@ -82,8 +82,7 @@ sed -i '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB2-1\tB2-2\tB2-3\tC22-1
 /media/behnam/Black_Seagate2/Mouse/Final_Figure1C/ANALYSIS/Methylation_in_3_Parental_Domains_in_4_Cells/Parental_K27me3_Domains_vs_Methylation_in_4_Cells/K27me3_Domains/H3K27me3-50kb-H3K27me3-1stComplete_Genome-peaks.-FILTERED_fixed.filtered_VALUES1.GENIC.LARGE.bedgraph
 
 
+# To do the counting
+# bedtools multicov -q 50 -bed one_of_the_bedgraphs_above -bams list_of_bams
 
 
-
-
-bedtools multicov -q 50 -bed mm10_1kb_intervals.bed -bams
