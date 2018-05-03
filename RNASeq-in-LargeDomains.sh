@@ -99,4 +99,6 @@ done
 
 cat ../bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "bedtools multicov -q 50 -bed "$2" -bams B2.Sorted.bam  C22.Sorted.bam  D1.Sorted.bam  K36M.Sorted.bam  K36R.Sorted.bam  P2.Sorted.bam > "$1".0.tsv"} else print $0}' >> complete_run_mergedBams.sh
 
+# After each multicov run (complete_run_mergedBams.sh), add a line with column names:
 
+sed -i '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB2\tC22\tD1\tK36M\tK36R\tP2\n/' file
