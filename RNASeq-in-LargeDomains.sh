@@ -93,4 +93,10 @@ sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB2-1\tB2-2\tB2-3\tC22-1\tC
 done
 
 
+### Next repeat the same for the merged RNASeq bam files (repeats 1,2 and 3)
+## after merging, sorting and indexing
+## Create the running shell script:
+
+cat ../bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "bedtools multicov -q 50 -bed "$2" -bams B2.Sorted.bam  C22.Sorted.bam  D1.Sorted.bam  K36M.Sorted.bam  K36R.Sorted.bam  P2.Sorted.bam > "$1".0.tsv"} else print $0}' >> complete_run_mergedBams.sh
+
 
