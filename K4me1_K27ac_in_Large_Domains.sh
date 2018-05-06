@@ -170,4 +170,4 @@ do
 sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB1K27ac\tB1K27acinput\tB1K4me1\tB1K4me1\tC1K27ac\tC1K27acinput\tC1K4me1\tC1K4me1\tK36MK27ac\tK36MK27acinput\tK36MK4me1\tK36MK4me1\tPaK27ac\tPaK27acinput\tPaK4me1\tPaK4me1\n/' $file > ${file/.0.tsv/.tsv}
 done   
 # next take the created table to R for plotting:
-
+K27ac_and_K4me1_in_Large_Domains.R
