@@ -119,3 +119,18 @@ done
 135062766
 #P2.Sorted.bam
 177345370
+
+
+
+## To look into the H3K4me1 and H3K27ac marks within large domains (mentioned above) in different cell lines:
+# count the number of mapped read counts in each bam file (H3K4me1 and H3K27ac in different cell lines):
+for file in *.bam;do echo $file;samtools flagstat $file;done
+
+# Next count the number of reads in each mentioned marks and their input samples within the large domains:
+# first created the run script:
+
+
+# then add this line to the run scrrip:
+
+# next take the created table to R for plotting:
+
