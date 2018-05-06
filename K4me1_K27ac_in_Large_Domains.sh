@@ -124,13 +124,20 @@ done
 
 ## To look into the H3K4me1 and H3K27ac marks within large domains (mentioned above) in different cell lines:
 # count the number of mapped read counts in each bam file (H3K4me1 and H3K27ac in different cell lines):
-for file in *.bam;do echo $file;samtools flagstat $file;done
+for file in *.bam;do echo $file;samtools flagstat $file | grep mapped | grep -e '(' | grep -e 'N/A' | awk '{print $1}';done
+# Here are the results
+
 
 # Next count the number of reads in each mentioned marks and their input samples within the large domains:
 # first created the run script:
 
+cat ../bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "bedtools multicov -q 50 -bed "$2" -bams C3H10T1-2-B1-Rx_H3K27ac.sorted.bam C3H10T1-2-B1-Rx_INPUTK27ac.sorted.bam C3H10T1-2-B1-Rx_H3K4me1.sorted.bam C3H10T1-2-B1-Rx_Input.sorted.bam C3H10T1-2-C1-Rx_H3K27ac.sorted.bam C3H10T1-2-C1-Rx_INPUTK27ac.sorted.bam C3H10T1-2-C1-Rx_H3K4me1.sorted.bam C3H10T1-2-C1-Rx_Input.sorted.bam C3H10T1-2-K36M-Rx_H3K27ac.sorted.bam C3H10T1-2-K36M-Rx_INPUTK27ac.sorted.bam C3H10T1-2-K36M-Rx_H3K4me1.sorted.bam C3H10T1-2-K36M-Rx_Input.sorted.bam C3H10T1-2-Pa-Rx_H3K27ac.sorted.bam C3H10T1-2-Pa-Rx_INPUTK27ac.sorted.bam C3H10T1-2-Pa-III-Rx_H3K4me1.sorted.bam C3H10T1-2-Pa-III-Rx_Input.sorted.bam > "$1".marks.0.tsv"} else print $0}' >> complete_run_marks.sh
 
 # then add this line to the run scrrip:
-
+for file in *.0.tsv
+do
+sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB1K27ac\tB1K27acinput\tB1K4me1\tB1K4me1\tC1K27ac\tC1K27acinput\tC1K4me1\tC1K4me1\tK36MK27ac\tK36MK27acinput\tK36MK4me1\tK36MK4me1\tPaK27ac\tPaK27acinput\tPaK4me1\tPaK4me1\n/' $file > 
+${file/.0.tsv/.tsv}
+done   
 # next take the created table to R for plotting:
 
