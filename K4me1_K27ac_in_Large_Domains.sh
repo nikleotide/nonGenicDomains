@@ -171,3 +171,81 @@ sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tB1K27ac\tB1K27acinput\tB1K
 done   
 # next take the created table to R for plotting:
 K27ac_and_K4me1_in_Large_Domains.R
+
+
+
+##### For K27me3, K36me3 and K9m3 marks in large domainas (similar to what you did for K4me1 and K27ac
+# First, get the total mapped reads:
+for file in *.bam;do echo $file;samtools flagstat $file  | grep mapped | grep -e '(' | grep -e 'N/A' | awk '{print $1}';done
+
+#3641_C3H10T1_K36M_input.sorted.bam
+31466631
+#3641_C3H10T1_Parental_input.sorted.bam
+45470506
+#3641_C3H10T1_SETD2-KO_input.sorted.bam
+53346926
+#4252_4295_C3H10T1_DKO_H3K36me2.sorted.bam
+47612786
+#4252_4295_C3H10T1_DKO_input.sorted.bam
+45335522
+#4252_4295_C3H10T1_K36M_H3K36me2.sorted.bam
+47646999
+#4252_4295_C3H10T1_K36M_input.sorted.bam
+43905805
+#4252_4295_C3H10T1_Parental_H3K36me2.sorted.bam
+54341330
+#4252_4295_C3H10T1_Parental_input.sorted.bam
+39822015
+#4252_4295_C3H10T1_SETD2-KO_H3K36me2.sorted.bam
+51066735
+#4252_4295_C3H10T1_SETD2-KO_input.sorted.bam
+40044470
+#4252_4295_C3H10T1_TKO_H3K36me2.sorted.bam
+12305874
+#4252_4295_C3H10T1_TKO_input.sorted.bam
+30205361
+#C3H10T1-2-C1-Rx_H3K9me3.sorted.bam
+1633271
+#C3H10T1-2-C1-Rx_Input.sorted.bam
+1468165
+#C3H10T1-2-K36M-Rx_H3K9me3.sorted.bam
+1734051
+#C3H10T1-2-K36M-Rx_Input.sorted.bam
+2390783
+#C3H10T1-2-Pa-Rx_H3K9me3.sorted.bam
+2809181
+#C3H10T1-2-Pa-Rx_Input.sorted.bam
+1799367
+#3607_C3H10T1_DKO_H3K27me3.sorted.bam
+58079645
+#3607_C3H10T1_K36M_H3K27me3.sorted.bam
+54398433
+#3607_C3H10T1_Parental_H3K27me3.sorted.bam
+42089195
+#3607_C3H10T1_SETD2-KO_H3K27me3.sorted.bam
+68184802
+#3641_C3H10T1_DKO_input.sorted.bam
+44031740
+#3641_C3H10T1_K36M_input.sorted.bam
+31466631
+#3641_C3H10T1_Parental_input.sorted.bam
+45470506
+#3641_C3H10T1_SETD2-KO_input.sorted.bam
+53346926
+
+
+# Next, count the reads mapped in each interval:
+# first created the run script:
+
+cat ../../Data/bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "echo \""$1"\"\n""bedtools multicov -q 50 -bed "$2" -bams 3607_C3H10T1_Parental_H3K27me3.sorted.bam 33641_C3H10T1_Parental_input.sorted.bam 33607_C3H10T1_K36M_H3K27me3.sorted.bam 33641_C3H10T1_K36M_input.sorted.bam 33607_C3H10T1_SETD2-KO_H3K27me3.sorted.bam 33641_C3H10T1_SETD2-KO_input.sorted.bam 33607_C3H10T1_DKO_H3K27me3.sorted.bam 33641_C3H10T1_DKO_input.sorted.bam 34252_4295_C3H10T1_Parental_H3K36me2.sorted.bam 34252_4295_C3H10T1_Parental_input.sorted.bam 34252_4295_C3H10T1_K36M_H3K36me2.sorted.bam 34252_4295_C3H10T1_K36M_input.sorted.bam 34252_4295_C3H10T1_SETD2-KO_H3K36me2.sorted.bam 34252_4295_C3H10T1_SETD2-KO_input.sorted.bam 34252_4295_C3H10T1_DKO_H3K36me2.sorted.bam 34252_4295_C3H10T1_DKO_input.sorted.bam 34252_4295_C3H10T1_TKO_H3K36me2.sorted.bam 34252_4295_C3H10T1_TKO_input.sorted.bam > "$1".K36me2K27me3K9me3Marks.0.tsv"} else print $0}' >> complete_run_marks.sh
+
+# then add this line to the run scrrip:
+for file in *.0.tsv
+do
+sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tParental_H3K27me3\tParental_input\tK36M_H3K27me3\tK36M_input\tSETD2-KO_H3K27me3\tSETD2-KO_input\tDKO_H3K27me3\tDKO_input\tParental_H3K36me2\tParental_input\tK36M_H3K36me2\tK36M_input\tSETD2-KO_H3K36me2\tSETD2-KO_input\tDKO_H3K36me2\tDKO_input\tTKO_H3K36me2\tTKO_input\n/' $file > ${file/.0.tsv/.tsv}
+done  
+# next take the created table to R for plotting:
+K36me2K27me3K4me1_in_Large_Domains.R
+
+
+
