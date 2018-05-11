@@ -205,8 +205,8 @@ cat ../../Data/bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "echo \
 # then add this line to the run scrrip:
 for file in *.0.tsv
 do
-sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tParental_H3K36me2\tParental_input\tK36M_H3K36me2\tK36M_input\tDKO_H3K36me2\tDKO_input\tSETD2-KO_H3K36me2\tSETD2-KO_input\tTKO_H3K36me2\tTKO_input\tParental_H3K27me3\tParental_input\tK36M_H3K27me3\tK36M_input\tDKO_H3K27me3\tDKO_input\tSETD2-KO_H3K27me3\tSETD2-KO_input\tParental_H3K9me3\tParental_input\tK36M_H3K9me3\tK36M_input\tDKO_H3K9me3\tC1-Rx_Input_H3K9me3\n/' $file > ${file/.0.tsv/.tsv}
-done  
+sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tParental_H3K36me2\tParental_H3K36me2input\tK36M_H3K36me2\tK36M_H3K36me2input\tDKO_H3K36me2\tDKO_H3K36me2input\tSETD2_KO_H3K36me2\tSETD2_KO_H3K36me2input\tTKO_H3K36me2\tTKO_H3K36me2input\tParental_H3K27me3\tParental_H3K27me3input\tK36M_H3K27me3\tK36M_H3K27me3input\tDKO_H3K27me3\tDKO_H3K27me3input\tSETD2_KO_H3K27me3\tSETD2_KO_H3K27me3input\tParental_H3K9me3\tParental_H3K9me3input\tK36M_H3K9me3\tK36M_H3K9me3input\tDKO_H3K9me3\tDKO_H3K9me3input\n/' $file > ${file/.0.tsv/.tsv}
+done
 # next take the created table to R for plotting:
 K36me2K27me3K4me1_in_Large_Domains.R
 
