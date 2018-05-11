@@ -126,38 +126,7 @@ done
 # count the number of mapped read counts in each bam file (H3K4me1 and H3K27ac in different cell lines):
 for file in *.bam;do echo $file;samtools flagstat $file | grep mapped | grep -e '(' | grep -e 'N/A' | awk '{print $1}';done
 # Here are the results
-#C3H10T1-2-B1-Rx_H3K27ac.sorted.bam
-29508831
-#C3H10T1-2-B1-Rx_H3K4me1.sorted.bam
-51885134
-#C3H10T1-2-B1-Rx_INPUTK27ac.sorted.bam
-23469486
-#C3H10T1-2-B1-Rx_Input.sorted.bam
-55979718
-#C3H10T1-2-C1-Rx_H3K27ac.sorted.bam
-35968139
-#C3H10T1-2-C1-Rx_H3K4me1.sorted.bam
-70786886
-#C3H10T1-2-C1-Rx_INPUTK27ac.sorted.bam
-30139533
-#C3H10T1-2-C1-Rx_Input.sorted.bam
-36517535
-#C3H10T1-2-K36M-Rx_H3K27ac.sorted.bam
-46194343
-#C3H10T1-2-K36M-Rx_H3K4me1.sorted.bam
-56295648
-#C3H10T1-2-K36M-Rx_INPUTK27ac.sorted.bam
-19674991
-#C3H10T1-2-K36M-Rx_Input.sorted.bam
-27005358
-#C3H10T1-2-Pa-III-Rx_H3K4me1.sorted.bam
-45739496
-#C3H10T1-2-Pa-III-Rx_Input.sorted.bam
-32147992
-#C3H10T1-2-Pa-Rx_H3K27ac.sorted.bam
-31530289
-#C3H10T1-2-Pa-Rx_INPUTK27ac.sorted.bam
-6766509
+
 
 # Next count the number of reads in each mentioned marks and their input samples within the large domains:
 # first created the run script:
@@ -178,24 +147,18 @@ K27ac_and_K4me1_in_Large_Domains.R
 # First, get the total mapped reads:
 for file in *.bam;do echo $file;samtools flagstat $file  | grep mapped | grep -e '(' | grep -e 'N/A' | awk '{print $1}';done
 
-#3641_C3H10T1_K36M_input.sorted.bam
-31466631
-#3641_C3H10T1_Parental_input.sorted.bam
-45470506
-#3641_C3H10T1_SETD2-KO_input.sorted.bam
-53346926
-#4252_4295_C3H10T1_DKO_H3K36me2.sorted.bam
-47612786
-#4252_4295_C3H10T1_DKO_input.sorted.bam
-45335522
-#4252_4295_C3H10T1_K36M_H3K36me2.sorted.bam
-47646999
-#4252_4295_C3H10T1_K36M_input.sorted.bam
-43905805
 #4252_4295_C3H10T1_Parental_H3K36me2.sorted.bam
 54341330
 #4252_4295_C3H10T1_Parental_input.sorted.bam
 39822015
+#4252_4295_C3H10T1_K36M_H3K36me2.sorted.bam
+47646999
+#4252_4295_C3H10T1_K36M_input.sorted.bam
+43905805
+#4252_4295_C3H10T1_DKO_H3K36me2.sorted.bam
+47612786
+#4252_4295_C3H10T1_DKO_input.sorted.bam
+45335522
 #4252_4295_C3H10T1_SETD2-KO_H3K36me2.sorted.bam
 51066735
 #4252_4295_C3H10T1_SETD2-KO_input.sorted.bam
@@ -204,45 +167,45 @@ for file in *.bam;do echo $file;samtools flagstat $file  | grep mapped | grep -e
 12305874
 #4252_4295_C3H10T1_TKO_input.sorted.bam
 30205361
-#C3H10T1-2-C1-Rx_H3K9me3.sorted.bam
-1633271
-#C3H10T1-2-C1-Rx_Input.sorted.bam
-1468165
-#C3H10T1-2-K36M-Rx_H3K9me3.sorted.bam
-1734051
-#C3H10T1-2-K36M-Rx_Input.sorted.bam
-2390783
-#C3H10T1-2-Pa-Rx_H3K9me3.sorted.bam
-2809181
-#C3H10T1-2-Pa-Rx_Input.sorted.bam
-1799367
-#3607_C3H10T1_DKO_H3K27me3.sorted.bam
-58079645
-#3607_C3H10T1_K36M_H3K27me3.sorted.bam
-54398433
 #3607_C3H10T1_Parental_H3K27me3.sorted.bam
 42089195
-#3607_C3H10T1_SETD2-KO_H3K27me3.sorted.bam
-68184802
-#3641_C3H10T1_DKO_input.sorted.bam
-44031740
-#3641_C3H10T1_K36M_input.sorted.bam
-31466631
 #3641_C3H10T1_Parental_input.sorted.bam
 45470506
+#3607_C3H10T1_K36M_H3K27me3.sorted.bam
+54398433
+#3641_C3H10T1_K36M_input.sorted.bam
+31466631
+#3607_C3H10T1_DKO_H3K27me3.sorted.bam
+58079645
+#3641_C3H10T1_DKO_input.sorted.bam
+44031740
+#3607_C3H10T1_SETD2-KO_H3K27me3.sorted.bam
+68184802
 #3641_C3H10T1_SETD2-KO_input.sorted.bam
 53346926
+#4290_C3H10T1_Parental_H3K9me3.sorted.bam
+69694859
+#4290_C3H10T1_Parental_input.sorted.bam
+46857429
+#4290_C3H10T1_K36M_H3K9me3.sorted.bam
+50394716
+#4290_C3H10T1_K36M_input.sorted.bam
+62088889
+#4290_C3H10T1_DKO_H3K9me3.sorted.bam
+44335876
+#4290_C3H10T1-2-C1-Rx_Input_H3K9me3.sorted.bam
+39163222
 
 
 # Next, count the reads mapped in each interval:
 # first created the run script:
 
-cat ../../Data/bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "echo \""$1"\"\n""bedtools multicov -q 50 -bed "$2" -bams 3607_C3H10T1_Parental_H3K27me3.sorted.bam 33641_C3H10T1_Parental_input.sorted.bam 33607_C3H10T1_K36M_H3K27me3.sorted.bam 33641_C3H10T1_K36M_input.sorted.bam 33607_C3H10T1_SETD2-KO_H3K27me3.sorted.bam 33641_C3H10T1_SETD2-KO_input.sorted.bam 33607_C3H10T1_DKO_H3K27me3.sorted.bam 33641_C3H10T1_DKO_input.sorted.bam 34252_4295_C3H10T1_Parental_H3K36me2.sorted.bam 34252_4295_C3H10T1_Parental_input.sorted.bam 34252_4295_C3H10T1_K36M_H3K36me2.sorted.bam 34252_4295_C3H10T1_K36M_input.sorted.bam 34252_4295_C3H10T1_SETD2-KO_H3K36me2.sorted.bam 34252_4295_C3H10T1_SETD2-KO_input.sorted.bam 34252_4295_C3H10T1_DKO_H3K36me2.sorted.bam 34252_4295_C3H10T1_DKO_input.sorted.bam 34252_4295_C3H10T1_TKO_H3K36me2.sorted.bam 34252_4295_C3H10T1_TKO_input.sorted.bam > "$1".K36me2K27me3K9me3Marks.0.tsv"} else print $0}' >> complete_run_marks.sh
+cat ../../Data/bedfiles_run.sh | awk '{if ($0 !~ "#" && $0 != "") {print "echo \""$1"\"\n""bedtools multicov -q 50 -bed "$2" -bams 4252_4295_C3H10T1_Parental_H3K36me2.sorted.bam 4252_4295_C3H10T1_Parental_input.sorted.bam 4252_4295_C3H10T1_K36M_H3K36me2.sorted.bam 4252_4295_C3H10T1_K36M_input.sorted.bam 4252_4295_C3H10T1_DKO_H3K36me2.sorted.bam 4252_4295_C3H10T1_DKO_input.sorted.bam 4252_4295_C3H10T1_SETD2-KO_H3K36me2.sorted.bam 4252_4295_C3H10T1_SETD2-KO_input.sorted.bam 4252_4295_C3H10T1_TKO_H3K36me2.sorted.bam 4252_4295_C3H10T1_TKO_input.sorted.bam 3607_C3H10T1_Parental_H3K27me3.sorted.bam 3641_C3H10T1_Parental_input.sorted.bam 3607_C3H10T1_K36M_H3K27me3.sorted.bam 3641_C3H10T1_K36M_input.sorted.bam 3607_C3H10T1_DKO_H3K27me3.sorted.bam 3641_C3H10T1_DKO_input.sorted.bam 3607_C3H10T1_SETD2-KO_H3K27me3.sorted.bam 3641_C3H10T1_SETD2-KO_input.sorted.bam 4290_C3H10T1_Parental_H3K9me3.sorted.bam 4290_C3H10T1_Parental_input.sorted.bam 4290_C3H10T1_K36M_H3K9me3.sorted.bam 4290_C3H10T1_K36M_input.sorted.bam 4290_C3H10T1_DKO_H3K9me3.sorted.bam 4290_C3H10T1-2-C1-Rx_Input_H3K9me3.sorted.bam > "$1".K36me2K27me3K9me3Marks.0.tsv"} else print $0}' >> complete_run_marks.sh
 
 # then add this line to the run scrrip:
 for file in *.0.tsv
 do
-sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tParental_H3K27me3\tParental_input\tK36M_H3K27me3\tK36M_input\tSETD2-KO_H3K27me3\tSETD2-KO_input\tDKO_H3K27me3\tDKO_input\tParental_H3K36me2\tParental_input\tK36M_H3K36me2\tK36M_input\tSETD2-KO_H3K36me2\tSETD2-KO_input\tDKO_H3K36me2\tDKO_input\tTKO_H3K36me2\tTKO_input\n/' $file > ${file/.0.tsv/.tsv}
+sed '1s/^/Chr\tStart\tEnd\tMark\tSeg_legnth\tSeg_num\tParental_H3K36me2\tParental_input\tK36M_H3K36me2\tK36M_input\tDKO_H3K36me2\tDKO_input\tSETD2-KO_H3K36me2\tSETD2-KO_input\tTKO_H3K36me2\tTKO_input\tParental_H3K27me3\tParental_input\tK36M_H3K27me3\tK36M_input\tDKO_H3K27me3\tDKO_input\tSETD2-KO_H3K27me3\tSETD2-KO_input\tParental_H3K9me3\tParental_input\tK36M_H3K9me3\tK36M_input\tDKO_H3K9me3\tC1-Rx_Input_H3K9me3\n/' $file > ${file/.0.tsv/.tsv}
 done  
 # next take the created table to R for plotting:
 K36me2K27me3K4me1_in_Large_Domains.R
